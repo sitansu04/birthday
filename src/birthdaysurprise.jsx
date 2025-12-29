@@ -905,6 +905,12 @@ import {
 
 // Note: Ensure your music file is in the correct path
 import ourSong from "./assets/music.mp3";
+import image from "./assets/music_img.jpg";
+import album_1 from "./assets/1.jpg";
+import album_2 from "./assets/2.jpg";
+import album_3 from "./assets/3.jpg";
+import album_4 from "./assets/4.jpg";
+import album_5 from "./assets/5.jpg";
 
 const BirthdaySurprise = () => {
   const [currentPage, setCurrentPage] = useState("landing");
@@ -922,31 +928,42 @@ const BirthdaySurprise = () => {
       caption: "First Date",
       emoji: "🌹",
       description: "The day my life changed forever.",
-    },
-    {
-      id: 2,
-      caption: "Our Wedding",
-      emoji: "💍",
-      description: "The best 'Yes' I ever said.",
+      image: album_1
     },
     {
       id: 3,
-      caption: "Beach Trip",
+      caption: "Swaraswati Puja",
       emoji: "🏖️",
-      description: "Sun, sand, and your beautiful smile.",
+      description: "Traditions, lights, and us.",
+      image: album_2
+    },
+    {
+      id: 2,
+      caption: "Ashirbad",
+      emoji: "💍",
+      description: "The best 'Yes' I ever said.",
+      image: album_3
     },
     {
       id: 4,
       caption: "Together Forever",
       emoji: "❤️",
       description: "Every second with you is a gift.",
+      image: album_5
+    },
+    {
+      id: 5,
+      caption: "Date Night",
+      emoji: "🍷",
+      description: "Romance and laughter, just us two.",
+      image: album_4
     },
   ];
 
   // Audio Logic
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.volume = 0.5;
+      audioRef.current.volume = 0.3;
       if (audioRef.current.currentTime === 0) audioRef.current.currentTime = 25;
     }
     if (musicPlaying && audioRef.current) {
@@ -994,9 +1011,9 @@ const BirthdaySurprise = () => {
     <div
       className={`relative z-10 border border-white/40 shadow-2xl overflow-hidden transition-all duration-500 ${className}`}
       style={{
-        background: "rgba(255, 255, 255, 0.2)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
+        background: "rgba(255, 255, 255, 0.1)",
+        backdropFilter: "blur(2px)",
+        WebkitBackdropFilter: "blur(2px)",
       }}
     >
       <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
@@ -1004,38 +1021,70 @@ const BirthdaySurprise = () => {
     </div>
   );
 
+  // const GiftCard = ({ icon, title, onClick }) => (
+  //   <div
+  //     className="group relative w-36 h-48 md:w-48 md:h-60 rounded-[32px] flex flex-col items-center justify-center cursor-pointer transition-all duration-500 border border-white/40 shadow-lg
+  //              hover:scale-110 hover:-translate-y-2 hover:bg-white/40 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+  //     style={{
+  //       background: "rgba(255, 255, 255, 0.26)",
+  //       backdropFilter: "blur(8px)",
+  //       WebkitBackdropFilter: "blur(8px)",
+  //     }}
+  //     onClick={onClick}
+  //   >
+  //     {/* Icon Zoom & Glow */}
+  //     <div
+  //       className="mb-4 transition-all duration-500 transform group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.9)]"
+  //       style={{ color: "#9d2d2dff" }}
+  //     >
+  //       {icon}
+  //     </div>
+
+  //     {/* Title Fade & Lift */}
+  //     <div
+  //       className="text-xs md:text-sm font-bold tracking-widest uppercase opacity-50 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-500"
+  //       style={{ color: "#9d2d2dff" }}
+  //     >
+  //       {title}
+  //     </div>
+
+  //     {/* Inner Glass Glow Overlay */}
+  //     <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+  //     {/* Expanding Border */}
+  //     <div className="absolute inset-0 rounded-[32px] border-2 border-transparent group-hover:border-white/40 transition-all duration-500 pointer-events-none scale-95 group-hover:scale-100" />
+  //   </div>
+  // );
+
   const GiftCard = ({ icon, title, onClick }) => (
     <div
       className="group relative w-36 h-48 md:w-48 md:h-60 rounded-[32px] flex flex-col items-center justify-center cursor-pointer transition-all duration-500 border border-white/40 shadow-lg 
-               hover:scale-110 hover:-translate-y-2 hover:bg-white/40 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+               hover:scale-110 active:scale-95 hover:-translate-y-2 hover:bg-white/40 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
       style={{
-        background: "rgba(255, 255, 255, 0.15)",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
+        background: "rgba(255, 255, 255, 0.2)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
       }}
       onClick={onClick}
     >
-      {/* Icon Zoom & Glow */}
+      {/* Child Zoom: Icon */}
       <div
-        className="mb-4 transition-all duration-500 transform group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.9)]"
+        className="mb-4 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3"
         style={{ color: "#9d2d2dff" }}
       >
         {icon}
       </div>
 
-      {/* Title Fade & Lift */}
+      {/* Child Zoom: Text */}
       <div
-        className="text-xs md:text-sm font-bold tracking-widest uppercase opacity-50 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-500"
+        className="text-xs md:text-sm font-bold tracking-widest uppercase opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
         style={{ color: "#9d2d2dff" }}
       >
         {title}
       </div>
 
-      {/* Inner Glass Glow Overlay */}
-      <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-      {/* Expanding Border */}
-      <div className="absolute inset-0 rounded-[32px] border-2 border-transparent group-hover:border-white/40 transition-all duration-500 pointer-events-none scale-95 group-hover:scale-100" />
+      {/* Reflection layer */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/20 to-transparent rounded-t-[32px] pointer-events-none" />
     </div>
   );
 
@@ -1108,25 +1157,66 @@ const BirthdaySurprise = () => {
     </div>
   );
 
+  // const GiftHubPage = () => (
+  //   <div
+  //     className="min-h-screen flex items-center justify-center p-4 md:p-8 relative overflow-hidden"
+  //     style={{
+  //       background: "linear-gradient(135deg, #f6e9f9ff 0%, #ffa8a8ff 100%)"
+  //     }}
+  //   >
+  //     <FloatingBalloons />
+  //     <GlassCard className="rounded-[40px] p-8 md:p-12 max-w-5xl w-full mx-4 text-center">
+  //       <h2
+  //         className="text-3xl md:text-4xl font-bold mb-10 drop-shadow-md"
+  //         style={{ color: "#900000ff" }}
+  //       >
+  //         💝 THESE ARE FOR YOU 💝
+  //       </h2>
+  //       <div className="flex justify-center gap-6 md:gap-10 flex-wrap">
+  //         <GiftCard
+  //           icon={<Music size={52} />}
+  //           title="Our Song"
+  //           onClick={() => setCurrentPage("music")}
+  //         />
+  //         <GiftCard
+  //           icon={<Camera size={52} />}
+  //           title="Moments"
+  //           onClick={() => setCurrentPage("photos")}
+  //         />
+  //         <GiftCard
+  //           icon={<Mail size={52} />}
+  //           title="A Letter"
+  //           onClick={() => setCurrentPage("letter")}
+  //         />
+  //       </div>
+  //     </GlassCard>
+  //   </div>
+  // );
+
   const GiftHubPage = () => (
     <div
       className="min-h-screen flex items-center justify-center p-4 md:p-8 relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #F6E9F9 0%, #ffa8a8ff 100%)",
+        background: "linear-gradient(135deg, #f6e9f9ff 0%, #ffa8a8ff 100%)",
       }}
     >
       <FloatingBalloons />
-      <GlassCard className="rounded-[40px] p-8 md:p-12 max-w-5xl w-full mx-4 text-center">
+
+      {/* Mobile: bg-transparent, border-none, shadow-none 
+        Desktop (md:): rgba background, white border, shadow-2xl 
+    */}
+      <GlassCard className="max-w-5xl w-full mx-4 text-center p-4 md:p-12 rounded-[40px] bg-transparent border-none shadow-none md:bg-[rgba(255,255,255,0.2)] md:border md:border-white/40 md:shadow-2xl md:backdrop-blur-xl">
         <h2
           className="text-3xl md:text-4xl font-bold mb-10 drop-shadow-md"
           style={{ color: "#900000ff" }}
         >
           💝 THESE ARE FOR YOU 💝
         </h2>
+
         <div className="flex justify-center gap-6 md:gap-10 flex-wrap">
           <GiftCard
             icon={<Music size={52} />}
-            title="Our Song"
+            title="Tomar Gan"
             onClick={() => setCurrentPage("music")}
           />
           <GiftCard
@@ -1144,6 +1234,50 @@ const BirthdaySurprise = () => {
     </div>
   );
 
+  // const MusicPage = () => (
+  //   <div
+  //     className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
+  //     style={{
+  //       background: "linear-gradient(135deg, #FDEBF3 0%, #fc7171ff 100%)",
+  //     }}
+  //   >
+  //     <FloatingBalloons />
+  //     <button
+  //       onClick={() => setCurrentPage("hub")}
+  //       className="absolute top-6 left-6 p-3 bg-white/40 backdrop-blur-md rounded-full z-20 shadow-lg border border-white/50"
+  //     >
+  //       <ArrowLeft size={24} style={{ color: "#6B3E8E" }} />
+  //     </button>
+  //     <GlassCard className="rounded-[32px] p-8 w-full max-w-[400px] text-center">
+  //       <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-2xl bg-white/30 flex items-center justify-center text-6xl shadow-inner border border-white/20 transition-transform duration-700 hover:rotate-6">
+  //         🎵
+  //       </div>
+  //       <h3 className="text-2xl font-bold mb-2" style={{ color: "#6B3E8E" }}>
+  //         Our Song 💕
+  //       </h3>
+  //       <p className="text-sm opacity-60 mb-8 italic">
+  //         Playing from your heart...
+  //       </p>
+  //       <button
+  //         onClick={() => setMusicPlaying(!musicPlaying)}
+  //         className="w-20 h-20 rounded-full bg-white/40 flex items-center justify-center mx-auto mb-8 transition-all hover:scale-110 active:scale-90 border border-white/60 shadow-xl group"
+  //       >
+  //         {musicPlaying ? (
+  //           <Pause size={40} className="group-hover:text-purple-600" />
+  //         ) : (
+  //           <Play size={40} className="ml-1 group-hover:text-purple-600" />
+  //         )}
+  //       </button>
+  //       <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden shadow-inner">
+  //         <div
+  //           className="h-full bg-gradient-to-r from-purple-400 to-purple-600 transition-all duration-1000"
+  //           style={{ width: musicPlaying ? "100%" : "0%" }}
+  //         />
+  //       </div>
+  //     </GlassCard>
+  //   </div>
+  // );
+
   const MusicPage = () => (
     <div
       className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
@@ -1152,22 +1286,45 @@ const BirthdaySurprise = () => {
       }}
     >
       <FloatingBalloons />
+
       <button
         onClick={() => setCurrentPage("hub")}
         className="absolute top-6 left-6 p-3 bg-white/40 backdrop-blur-md rounded-full z-20 shadow-lg border border-white/50"
       >
         <ArrowLeft size={24} style={{ color: "#6B3E8E" }} />
       </button>
+
       <GlassCard className="rounded-[32px] p-8 w-full max-w-[400px] text-center">
-        <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-2xl bg-white/30 flex items-center justify-center text-6xl shadow-inner border border-white/20 transition-transform duration-700 hover:rotate-6">
-          🎵
+        {/* Updated Image Container with "Bled" Border effect */}
+        <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 transition-transform duration-700 hover:rotate-6">
+          <img
+            src={image} // Ensure this path is correct
+            alt="Album Art"
+            className="w-full h-full object-cover rounded-2xl shadow-inner border border-white/30"
+            style={{
+              // "Bending" the borders significantly
+              borderRadius: "20px",
+              // The "Bled" edge effect using a soft mask
+              WebkitMaskImage:
+                "radial-gradient(circle, black 60%, rgba(0,0,0,0.7) 85%, transparent 100%)",
+              maskImage:
+                "radial-gradient(circle, black 60%, rgba(0,0,0,0.7) 85%, transparent 100%)",
+
+              // Additional styling
+              border: "2px solid rgba(255, 255, 255, 0.4)",
+              filter: "contrast(1.05) brightness(1.05)",
+            }}
+          />
         </div>
+
         <h3 className="text-2xl font-bold mb-2" style={{ color: "#6B3E8E" }}>
-          Our Song 💕
+          Tomar Gan 💕
         </h3>
+
         <p className="text-sm opacity-60 mb-8 italic">
-          Playing from your heart...
+          Playing from my heart...
         </p>
+
         <button
           onClick={() => setMusicPlaying(!musicPlaying)}
           className="w-20 h-20 rounded-full bg-white/40 flex items-center justify-center mx-auto mb-8 transition-all hover:scale-110 active:scale-90 border border-white/60 shadow-xl group"
@@ -1178,6 +1335,7 @@ const BirthdaySurprise = () => {
             <Play size={40} className="ml-1 group-hover:text-purple-600" />
           )}
         </button>
+
         <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden shadow-inner">
           <div
             className="h-full bg-gradient-to-r from-purple-400 to-purple-600 transition-all duration-1000"
@@ -1213,7 +1371,8 @@ const BirthdaySurprise = () => {
         </button>
         <GlassCard className="rounded-[32px] p-6 md:p-10 w-full max-w-[600px] text-center">
           <div className="aspect-square w-full bg-white/20 rounded-2xl flex items-center justify-center text-8xl md:text-9xl mb-6 shadow-inner border border-white/30 transition-all duration-500 hover:scale-[1.02]">
-            {currentPhoto.emoji}
+            <img src={currentPhoto.image} alt="album" className="w-full h-full object-cover block rounded-2xl"/>
+            {/* {currentPhoto.image} */}
           </div>
           <h3
             className="text-2xl md:text-3xl font-bold mb-2 italic"
@@ -1265,23 +1424,21 @@ const BirthdaySurprise = () => {
           className="text-2xl md:text-3xl font-bold mb-8"
           style={{ color: "#6B3E8E" }}
         >
-          My Dearest, 💌
+          My Bhutki, 💌
         </h3>
         <div className="space-y-6 text-sm md:text-lg text-gray-700 leading-relaxed italic text-left">
           <p>
-            Every single day, I thank the stars that our paths crossed. You
-            aren't just my partner; you are my home, my peace, and my greatest
-            adventure.
+প্রতিদিন আমি আকাশের তারাগুলোর কাছে কৃতজ্ঞতা জানাই, কারণ আমাদের পথ একদিন মিলেছিল।
+তুমি শুধু আমার সঙ্গী নও; তুমি আমার ঘর, আমার শান্তি, আর আমার জীবনের সবচেয়ে সুন্দর অভিযান।
           </p>
           <p>
-            Watching you grow and navigate the world with such grace is the
-            highlight of my life. You make everything—even the simplest
-            moments—feel magical.
+তুমি আমার জীবনে যে ভালোবাসা, যত্ন আর নিঃস্বার্থ সমর্থন দিয়েছ, তা শব্দে প্রকাশ করা সত্যিই কঠিন। জীবনের প্রতিটি কঠিন সময়ে তুমি আমার পাশে থেকেছ, আমাকে বিশ্বাস করতে শিখিয়েছ, শক্ত করে ধরেছ যখন আমি ভেঙে পড়েছি। তোমার উপস্থিতিতেই আমি শান্তি পাই, সাহস পাই, আর নতুন করে এগিয়ে যাওয়ার শক্তি খুঁজে পাই। তুমি শুধু আমার ভালোবাসা নও, তুমি আমার ভরসা, আমার আশ্রয়।
           </p>
           <p>
-            On your birthday, my only wish is that you see yourself through my
-            eyes: a breathtaking, kind, and brilliant soul who deserves the
-            world.
+আজ তোমার জন্মদিনে, আমি শুধু এটুকুই চাই—তোমার জীবনের প্রতিটি দিন হোক হাসি, স্বপ্ন আর সাফল্যে ভরা। যেমন করে তুমি আমার জীবনকে আলোয় ভরিয়ে দিয়েছ, তেমনই পৃথিবী তোমার জীবনে নিয়ে আসুক অসীম সুখ আর ভালোবাসা। জন্মদিনের অনেক অনেক শুভেচ্ছা, আমার জীবনের সবচেয়ে সুন্দর উপহার তুমি।
+          </p>
+          <p>
+            আগামী বছর আমাদের বিয়ে, তাই নিশ্চিতভাবেই আমরা সেই বিশেষ মুহূর্তটা একসাথেই পালন করব। নতুন জীবনের পথে হাতে হাত রেখে এগিয়ে যাওয়ার অপেক্ষায় আছি আমি। ভালোবাসা, বিশ্বাস আর একে অপরের পাশে থাকার প্রতিশ্রুতি নিয়ে আমরা আমাদের আগামী দিনগুলোকে আরও সুন্দর করে তুলব। সেই দিনটার জন্য এখন থেকেই মন ভরে স্বপ্ন দেখছি।
           </p>
           <p
             className="text-right font-bold mt-10"
@@ -1336,8 +1493,11 @@ const BirthdaySurprise = () => {
           className="text-3xl md:text-5xl font-bold mb-6 drop-shadow-md"
           style={{ color: "#6B3E8E" }}
         >
-          You Are My Everything 💖
+          You Are My World 💖
         </h1>
+        <p className="text-lg md:text-2xl opacity-80 mb-12 italic">
+          I love You More Than Words Can Say, My {wifeName}.
+        </p>
         <p className="text-lg md:text-2xl opacity-80 mb-12 italic">
           Here's to another beautiful year of us!
         </p>
